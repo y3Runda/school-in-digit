@@ -8,7 +8,7 @@ class Db {
 		$paramsPath = ROOT . '/config/db_params.php';
 		$params = include($paramsPath);
 		// Setting up the connection
-		$dns = "mysql:host={$params['host']};dbname={$params['dbname']}";
+		$dns = "mysql:host={$params['host']};dbname={$params['name']}";
 		try {
 			$db = new PDO($dns, $params['user'], $params['pass']);
 		} catch(PDOException $e) {

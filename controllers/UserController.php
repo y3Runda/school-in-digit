@@ -61,15 +61,12 @@ class UserController {
             if (!User::checkLengthLogin($login)) $errors[] = 'Логін занадто короткий';
             if (User::checkLoginExists($login)) $errors[] = 'Такий логін вже використаний';
             if (!User::checkLengthPassword($login)) $errors[] = 'Пароль занадто короткий';
-            if ($password1 != $password2) $errors[] = 'Паролі на співпадають';
+            if ($password1 != $password2) $errors[] = 'Паролі не співпадають';
 
             if (count($errors) == 0) {
                 $result = User::registerPupil($c_school, $c_class, $email, $login, $password1, $surname, $name, $patronymic, $birthdate, $gender_id);
-                echo $result;
                 if ($result) {
                     header("Location: /user/login");
-                } else {
-                    echo "FAILED";
                 }
             }
         }

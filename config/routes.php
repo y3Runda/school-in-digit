@@ -16,5 +16,7 @@ return array(
 	'user/signup/pupil' => 'user/signupPupil',
 	'user/signup/teacher' => 'user/signupTeacher',
 	'user/signup/parent' => 'user/signupParent',
-	
+	// Admin
+    'admin/signup'      => 'admin/signup',
+    'admin/school/registration' => 'admin/schoolRegistration',
 );

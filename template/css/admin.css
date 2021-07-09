@@ -1,0 +1,44 @@
+/* Admin signup section */
+.admin_signup {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.admin_signup #everything__admin_signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.admin_signup form {
+    background-color: #fff;
+    width: 450px;
+    padding: 40px 15px;
+    border-top: 6px solid #516E71;
+    border-bottom: 6px solid #516E71;
+}
+.admin_signup form p {
+    margin-top: 15px;
+}
+.admin_signup form input {
+    width: 436px;
+    font-size: 1.3rem;
+    padding: 5px;
+}
+.admin_signup .accept input {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 12px;
+    font-size: 1.4rem;
+}
+.admin_signup a {
+    color: #516E71;
+    font-weight: 500;
+}
+.admin_signup select {
+     width: 450px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     font-size: 1.3rem;
+     font-weight: 300;
+ }

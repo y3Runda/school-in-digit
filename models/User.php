@@ -23,15 +23,13 @@ class User {
 	public static function registerPupil($c_school, $c_class, $email, $login, $password, $surname, $name, $patronymic, $birthdate, $gender_id): bool
     {
 		$db = Db::getConnection();
-		$sql = "INSERT INTO users (`email`, `login`, `password`, `surname`, `name`, `patronymic`, `birthdate`, `joindate`, `gender_id`, `role_id`) "
-                . "VALUES (:email, :login, :password, :surname, :name, :patronymic, :birthdate, :joindate, :gender_id, :role_id)";
+		$sql = 'INSERT INTO users (`email`, `login`, `password`, `surname`, `name`, `patronymic`, `birthdate`, `joindate`, `gender_id`, `role_id`) '
+                . 'VALUES (:email, :login, :password, :surname, :name, :patronymic, :birthdate, :joindate, :gender_id, :role_id)';
 
 		$joindate = date('Y') . '-' . date('m') . '-' . date('d');
 		$role_id = 6; // pupil
 
 		$result = $db->prepare($sql);
-		echo "PREPARED";
-		echo "<br>$sql<br>";
         $params = [
             ':email' => $email,
 		    ':password' => $password,
@@ -44,10 +42,17 @@ class User {
             ':gender_id' => $gender_id,
             ':role_id' => $role_id,
         ];
-        print_r($params);
-        print_r($result->execute($params));
+        /*$result->bindValue(':email', $email);
+        $result->bindValue(':password', $password);
+        $result->bindValue(':login', $login);
+        $result->bindValue(':surname', $surname);
+        $result->bindValue(':name', $name);
+        $result->bindValue(':patronymic', $patronymic);
+        $result->bindValue(':birthdate', $birthdate);
+        $result->bindValue(':joindate', $joindate);
+        $result->bindValue(':gender_id', $gender_id);
+        $result->bindValue(':role_id', $role_id);*/
         return $result->execute($params);
-        echo "<br>";
 	}
 
 	public static function registerTeacher() {
