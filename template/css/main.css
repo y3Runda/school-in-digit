@@ -539,3 +539,26 @@ footer .subscribe {
 	background-color: #516E71;
 	color: #B7D2D0;
 }
+
+
+/* Quotes section */
+.quotes_section {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #516E71;
+	color: #fff;
+}
+.quotes_section #everything__quotes_section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.quotes_section noindex {
+	font-size: 1.3rem;
+}
+.quotes_section a {
+	color: #B7D2D0;
+}
+.quotes_section a:hover {
+	text-decoration: underline;
+}

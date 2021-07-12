@@ -12,12 +12,26 @@ class UserController {
 		$login = false;
 		$password = false;
 		
-		if ( isset($_POST['submit']) ) {
+		if ( isset($_POST['do_login']) ) {
 
 			$login = $_POST['login'];
 			$password = $_POST['password'];
 
-			
+			$errors = []; // array of errors
+
+            if (User::checkLoginExists($login)) {
+                if (User::passwordMatches($login, $password)) {
+
+                } else {
+                    $errors[] = 'Неправильний логін чи пароль123';
+                }
+            } else {
+                $errors[] = 'Неправильний логін чи пароль';
+            }
+
+			if (empty($errors)) {
+			    User::login($login);
+            }
 
 		}
 
@@ -63,8 +77,10 @@ class UserController {
             if (!User::checkLengthPassword($login)) $errors[] = 'Пароль занадто короткий';
             if ($password1 != $password2) $errors[] = 'Паролі не співпадають';
 
+            $password = password_hash($password1, PASSWORD_DEFAULT);
+
             if (count($errors) == 0) {
-                $result = User::registerPupil($c_school, $c_class, $email, $login, $password1, $surname, $name, $patronymic, $birthdate, $gender_id);
+                $result = User::registerPupil($c_school, $c_class, $email, $login, $password, $surname, $name, $patronymic, $birthdate, $gender_id);
                 if ($result) {
                     header("Location: /user/login");
                 }

@@ -29,14 +29,19 @@ class Admin
      * @param $pass
      * @return bool
      */
-    public static function checkAdminPass($pass) {
+    public static function checkAdminPass($pass): bool
+    {
 
         $db = Db::getConnection();
         $sql = "SELECT * FROM system_config WHERE id = 1";
-        $result = $db->prepare($sql);
-        $result->execute();
+        $result = $db->query($sql);
+        $rows = $result->fetchAll();
+        print_r($rows);
 
-        // TODO: make checking admin password
+        $hash = $rows['value'];
+        print_r($hash);
+
+        return password_verify($pass, $hash);
 
     }
 

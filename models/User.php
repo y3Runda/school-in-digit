@@ -42,16 +42,6 @@ class User {
             ':gender_id' => $gender_id,
             ':role_id' => $role_id,
         ];
-        /*$result->bindValue(':email', $email);
-        $result->bindValue(':password', $password);
-        $result->bindValue(':login', $login);
-        $result->bindValue(':surname', $surname);
-        $result->bindValue(':name', $name);
-        $result->bindValue(':patronymic', $patronymic);
-        $result->bindValue(':birthdate', $birthdate);
-        $result->bindValue(':joindate', $joindate);
-        $result->bindValue(':gender_id', $gender_id);
-        $result->bindValue(':role_id', $role_id);*/
         return $result->execute($params);
 	}
 
@@ -123,4 +113,40 @@ class User {
 	    if (strlen($password) >= 8) return true;
         return false;
     }
+
+    /**
+     * @param $login
+     * @param $password
+     * @return bool
+     */
+    public static function passwordMatches($login, $password): bool
+    {
+        $db = Db::getConnection();
+        $sql = "SELECT * FROM users WHERE `login` = ?";
+        $result = $db->prepare($sql);
+        $result->execute([$login]);
+        $row = $result->fetchAll();
+        $db_password = $row[0]["password"];
+        if (password_verify($password, $db_password)) return true;
+        return false;
+    }
+
+    public static function login($login) {
+        $db = Db::getConnection();
+        $sql = "SELECT * FROM users WHERE `login` = ?";
+        $result = $db->prepare($sql);
+        $result->execute([$login]);
+        $row = $result->fetchAll();
+        $_SESSION['user'] = $row[0];
+    }
+
+    /**
+     * @return bool
+     */
+    public static function checkLogged(): bool
+    {
+        if (isset($_SESSION['user'])) return true;
+        return false;
+    }
+
 }
