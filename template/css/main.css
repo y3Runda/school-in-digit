@@ -143,7 +143,7 @@ footer #everything-footer {
 		position: relative;
 		top: 10px;
 	}
-	footer .logo, footer .subscribe {
+	footer .logo, footer .support {
 		flex-basis: 70%;
 		margin-top: 30px;
 		text-align: center;
@@ -164,7 +164,7 @@ footer #everything-footer {
 		position: relative;
 		top: 10px;
 	}
-	footer .logo, footer .links, footer .subscribe {
+	footer .logo, footer .links, footer .support {
 		flex-basis: 100%;
 		margin-top: 30px;
 		text-align: center;
@@ -262,6 +262,27 @@ footer .support {
 	font-size: .75rem;
 	width: 300px;
 }
+footer .support .heading {
+	font-size: .875rem;
+	color: #fff;
+	font-weight: 500;
+	margin-bottom: 23px;
+}
+footer .support .s_desc {
+	font-size: .8rem;
+	font-weight: 400;
+}
+footer .support .support_btn {
+	width: 100%;
+	padding: 12px 0;
+	font-weight: 400;
+	font-size: 1rem;
+	text-align: center;
+	margin-top: 15px;
+	color: #516E71;
+	background-color: #DBE9E8;
+	border: 1px solid #DBE9E8;
+}
 footer #social-buttons {
 	display: flex;
 	justify-content: center;
@@ -292,80 +313,6 @@ footer #social-buttons a:hover i {
 		text-align: center;
 	}
 }
-/*footer {
-	flex: 0 0 auto;
-	background-color: #516E71;
-	padding-top: 50px;
-	padding-bottom: 50px;
-}
-footer #everything_footer {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-}
-footer .logo {
-	color: #DBE9E8;
-	text-align: center;
-}
-footer #to_top {
-	margin: 0 auto;
-	margin-bottom: 10px;
-	width: 50px;
-	height: 50px;
-	border-radius: 50px;
-	background-color: #ffffff;
-	color: #516E71;
-	line-height: 50px;
-	font-size: 20px;
-	cursor: pointer;
-	box-shadow: 2px 2px 20px rgb(255 255 255 / 50%);
-}
-footer .logo>a>img {
-	width: 50px;
-	height: 50px;
-	float: left;
-	margin-top: 5px;
-}
-footer .logo>a>span {
-	font-size: 42px;
-	color: #fff;
-	font-weight: 700;
-	margin-left: 10px;
-}
-footer .links {
-	display: flex;
-	align-items: flex-start;
-	justify-content: space-between;
-}
-footer .links>div {
-	display: inline-block;
-}
-footer .links>div .headings-footer {
-	color: #fff;
-	margin-bottom: 23px;
-	font-weight: 500;
-	font-size: .875rem;
-}
-footer .links>div ul {
-	list-style: none;
-}
-footer .links>div:last-of-type {
-	margin-left: 100px;
-}
-footer .links>div ul a {
-	color: #DBE9E8;
-	font-weight: 400;
-	font-size: .875rem;
-	display: block;
-	margin-bottom: 21px;
-}
-footer .subscribe {
-	color: #DBE9E8;
-	margin-bottom: 15px;
-	font-weight: 400;
-	font-size: .75rem;
-	width: 300px;
-}*/
 
 @media (min-width: 1270px) {
 	footer .links>div ul.last {
@@ -549,9 +496,7 @@ footer .subscribe {
 	color: #fff;
 }
 .quotes_section #everything__quotes_section {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	text-align: center;
 }
 .quotes_section noindex {
 	font-size: 1.3rem;
